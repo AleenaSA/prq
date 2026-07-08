@@ -1,4 +1,4 @@
-module github.com/aabuji/prq
+module github.com/AleenaSA/prq
 
 go 1.26.5
 

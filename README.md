@@ -21,30 +21,30 @@ $ prq
 
 For your own PRs, the three symbols represent (left to right):
 
-| Position | Symbol | Meaning |
-|----------|--------|---------|
-| CI | `✓` | Passing |
-| CI | `✗` | Failing |
-| CI | `◌` | Pending |
-| CI | `–` | No checks |
-| Review | `●` (green) | Approved |
-| Review | `●` (yellow) | Pending review |
-| Review | `●` (red) | Changes requested |
-| Merge | `◯` | Clean, mergeable |
-| Merge | `⊘` | Has conflicts |
-| Merge | `?` | Unknown |
+| Position | Symbol       | Meaning           |
+| -------- | ------------ | ----------------- |
+| CI       | `✓`          | Passing           |
+| CI       | `✗`          | Failing           |
+| CI       | `◌`          | Pending           |
+| CI       | `–`          | No checks         |
+| Review   | `●` (green)  | Approved          |
+| Review   | `●` (yellow) | Pending review    |
+| Review   | `●` (red)    | Changes requested |
+| Merge    | `◯`          | Clean, mergeable  |
+| Merge    | `⊘`          | Has conflicts     |
+| Merge    | `?`          | Unknown           |
 
 ## Install
 
 ```bash
 # Homebrew
-brew install aabuji/tap/prq
+brew install AleenaSA/tap/prq
 
 # Go
-go install github.com/aabuji/prq@latest
+go install github.com/AleenaSA/prq@latest
 
 # Binary (see releases)
-curl -sSL https://github.com/aabuji/prq/releases/latest/download/prq_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).tar.gz | tar xz
+curl -sSL https://github.com/AleenaSA/prq/releases/latest/download/prq_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m).tar.gz | tar xz
 ```
 
 ## Auth
