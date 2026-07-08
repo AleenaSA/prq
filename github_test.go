@@ -50,9 +50,6 @@ func TestConvertPR(t *testing.T) {
 	if pr.Merge != Conflicting {
 		t.Errorf("Merge = %d, want Conflicting", pr.Merge)
 	}
-	if pr.Additions != 50 {
-		t.Errorf("Additions = %d, want 50", pr.Additions)
-	}
 }
 
 func TestConvertPRNoChecks(t *testing.T) {
@@ -105,9 +102,7 @@ func TestConvertReviewRequest(t *testing.T) {
 		"author": {"login": "colleague"},
 		"baseRepository": {"nameWithOwner": "org/repo"},
 		"createdAt": "2024-01-01T00:00:00Z",
-		"updatedAt": "2024-01-01T12:00:00Z",
-		"additions": 200,
-		"deletions": 50
+		"updatedAt": "2024-01-01T12:00:00Z"
 	}`
 
 	var node apiSearchNode
@@ -120,7 +115,7 @@ func TestConvertReviewRequest(t *testing.T) {
 	if rr.Author != "colleague" {
 		t.Errorf("Author = %q, want %q", rr.Author, "colleague")
 	}
-	if rr.Additions != 200 {
-		t.Errorf("Additions = %d, want 200", rr.Additions)
+	if rr.Repo != "org/repo" {
+		t.Errorf("Repo = %q, want %q", rr.Repo, "org/repo")
 	}
 }

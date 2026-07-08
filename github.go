@@ -45,8 +45,6 @@ type apiPullRequest struct {
 	} `json:"author"`
 	CreatedAt string `json:"createdAt"`
 	UpdatedAt string `json:"updatedAt"`
-	Additions int    `json:"additions"`
-	Deletions int    `json:"deletions"`
 	Commits   struct {
 		Nodes []struct {
 			Commit struct {
@@ -77,8 +75,6 @@ type apiSearchNode struct {
 	} `json:"baseRepository"`
 	CreatedAt string `json:"createdAt"`
 	UpdatedAt string `json:"updatedAt"`
-	Additions int    `json:"additions"`
-	Deletions int    `json:"deletions"`
 }
 
 type fetchResult struct {
@@ -189,13 +185,11 @@ func executeQuery(token, query string) (json.RawMessage, error) {
 
 func convertPR(node apiPullRequest) PR {
 	pr := PR{
-		Number:    node.Number,
-		Title:     node.Title,
-		URL:       node.URL,
-		Author:    node.Author.Login,
-		IsDraft:   node.IsDraft,
-		Additions: node.Additions,
-		Deletions: node.Deletions,
+		Number:  node.Number,
+		Title:   node.Title,
+		URL:     node.URL,
+		Author:  node.Author.Login,
+		IsDraft: node.IsDraft,
 	}
 
 	if node.BaseRepository.NameWithOwner != "" {
@@ -252,12 +246,10 @@ func convertPR(node apiPullRequest) PR {
 
 func convertReviewRequest(node apiSearchNode) ReviewRequest {
 	rr := ReviewRequest{
-		Number:    node.Number,
-		Title:     node.Title,
-		URL:       node.URL,
-		IsDraft:   node.IsDraft,
-		Additions: node.Additions,
-		Deletions: node.Deletions,
+		Number:  node.Number,
+		Title:   node.Title,
+		URL:     node.URL,
+		IsDraft: node.IsDraft,
 	}
 
 	if node.Author != nil {

@@ -114,6 +114,9 @@ func mergeLabel(status MergeStatus) string {
 	}
 }
 
-func diffStat(additions, deletions int) string {
-	return fmt.Sprintf(colored(green, "+%d")+"/"+colored(red, "-%d"), additions, deletions)
+func hyperlink(url, text string) string {
+	if !colorEnabled || !isTTY {
+		return text
+	}
+	return fmt.Sprintf("\033]8;;%s\033\\%s\033]8;;\033\\", url, text)
 }

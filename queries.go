@@ -20,8 +20,6 @@ query {
         }
         createdAt
         updatedAt
-        additions
-        deletions
         commits(last: 1) {
           nodes {
             commit {
@@ -39,7 +37,7 @@ query {
 
 const reviewRequestsQuery = `
 query {
-  search(query: "is:pr is:open review-requested:@me", type: ISSUE, first: 30) {
+  search(query: "is:pr is:open user-review-requested:@me", type: ISSUE, first: 30) {
     nodes {
       ... on PullRequest {
         number
@@ -54,8 +52,6 @@ query {
         }
         createdAt
         updatedAt
-        additions
-        deletions
       }
     }
   }

@@ -47,20 +47,21 @@ func TestTruncate(t *testing.T) {
 	}
 }
 
-func TestShortRepo(t *testing.T) {
+func TestRepoName(t *testing.T) {
 	tests := []struct {
 		input string
 		want  string
 	}{
-		{"org/repo", "org/repo"},
-		{"very-long-org-name/repo", "very-long-or…/repo"},
-		{"short/repo-name", "short/repo-name"},
+		{"org/repo", "repo"},
+		{"very-long-org-name/my-service", "my-service"},
+		{"short/repo-name", "repo-name"},
+		{"solo", "solo"},
 	}
 
 	for _, tt := range tests {
-		got := shortRepo(tt.input)
+		got := repoName(tt.input)
 		if got != tt.want {
-			t.Errorf("shortRepo(%q) = %q, want %q", tt.input, got, tt.want)
+			t.Errorf("repoName(%q) = %q, want %q", tt.input, got, tt.want)
 		}
 	}
 }

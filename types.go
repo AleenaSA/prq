@@ -39,8 +39,6 @@ type PR struct {
 	CI        CIStatus
 	Review    ReviewStatus
 	Merge     MergeStatus
-	Additions int
-	Deletions int
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
@@ -52,8 +50,6 @@ type ReviewRequest struct {
 	URL       string
 	Author    string
 	IsDraft   bool
-	Additions int
-	Deletions int
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
